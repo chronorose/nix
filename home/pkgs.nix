@@ -7,14 +7,22 @@ in
     	gnome-tweaks
     	gnomeExtensions.hide-top-bar
       wl-clipboard
-    	kitty
+
     	ripgrep
+
       clang	
+
       telegram-desktop
-      grim
+
+      # latex
       pandoc
       texliveBasic
+
       llm-pkgs.opencode
+
+      # usual suspects
+      python3
+      nodejs
     ];
 
 }
