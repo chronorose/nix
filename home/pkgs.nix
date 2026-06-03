@@ -1,4 +1,7 @@
-{ pkgs, ...}:
+{ pkgs, inputs, ...}:
+let 
+  llm-pkgs = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+in
 {
     home.packages = with pkgs; [
     	gnome-tweaks
@@ -11,6 +14,7 @@
       grim
       pandoc
       texliveBasic
+      llm-pkgs.opencode
     ];
 
 }
