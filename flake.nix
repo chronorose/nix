@@ -8,7 +8,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     llm-agents.url = "github:numtide/llm-agents.nix";
-    understand-anything.url = "github:Lum1104/Understand-Anything";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
