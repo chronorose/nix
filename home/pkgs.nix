@@ -23,6 +23,9 @@ in
       # usual suspects
       python3
       nodejs
+
+      gdb
+      rr
     ];
 
 }
