@@ -5,5 +5,6 @@
     ./direnv
     ./git
     ./nvim
+    ./zoxide
   ];
 }
