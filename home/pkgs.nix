@@ -1,31 +1,16 @@
-{ pkgs, inputs, ...}:
+{ pkgs, inputs, ...}@input:
 let 
-  llm-pkgs = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+  packageFiles = [
+    ./packages/dev.nix
+    ./packages/gnome.nix
+    ./packages/social.nix
+    ./packages/slop.nix
+  ];
+
+  packageLists = map (file: import file input) packageFiles;
+
+  packages = builtins.concatLists packageLists;
 in
 {
-    home.packages = with pkgs; [
-    	gnome-tweaks
-    	gnomeExtensions.hide-top-bar
-      wl-clipboard
-
-    	ripgrep
-
-      clang	
-
-      telegram-desktop
-
-      # latex
-      pandoc
-      texliveBasic
-
-      llm-pkgs.opencode
-
-      # usual suspects
-      python3
-      nodejs
-
-      gdb
-      rr
-    ];
-
+  home.packages = packages;
 }
