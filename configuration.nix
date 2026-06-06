@@ -5,16 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "redo"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -40,6 +31,18 @@
     LC_PAPER = "ru_RU.UTF-8";
     LC_TELEPHONE = "ru_RU.UTF-8";
     LC_TIME = "ru_RU.UTF-8";
+  };
+
+  documentation.dev.enable = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      zlib
+      stdenv.cc.cc
+      openssl
+      curl
+    ];
   };
 
   # Enable the X11 windowing system.
@@ -75,6 +78,8 @@
     #media-session.enable = true;
   };
 
+  users.defaultUserShell = pkgs.fish;
+
   programs.fish.enable = true;
 
   fonts.packages = with pkgs; [
@@ -95,7 +100,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.chronorose = {
     isNormalUser = true;
-    description = "Vova Zhakulin";
+    description = "chronorose";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 

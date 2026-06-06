@@ -5,6 +5,7 @@ let
     ./packages/gnome.nix
     ./packages/social.nix
     ./packages/slop.nix
+    ./packages/user.nix
   ];
 
   packageLists = map (file: import file input) packageFiles;
