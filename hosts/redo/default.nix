@@ -1,14 +1,20 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   networking.hostName = "redo";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
   programs.git = {
-    settings.user = {
-      name = "Vova Zhakulin";
-      email = "zhakulin.vladimir@h-partners.com";
+    enable = true;
+    config = {
+      user = {
+        userName = "Vova Zhakulin";
+        userEmail = "zhakulin.vladimir@h-partners.com";
+      };
+      core.editor = "nvim";
+      init.defaultBranch = "master";
     };
   };
 

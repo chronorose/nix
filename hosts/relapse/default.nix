@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   networking.hostName = "relapse";
@@ -16,9 +16,15 @@
   };
 
   programs.git = {
-    settings.user = {
-      name = "chronorose";
-      email = "rendemare@gmail.com";
+    enable = true;
+    config = {
+      user = {
+        name = "chronorose";
+        email = "rendemare@gmail.com";
+      };
+      core.editor = "nvim";
+      init.defaultBranch = "master";
     };
   };
+
 }

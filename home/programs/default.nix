@@ -3,7 +3,6 @@
     ./tmux
     ./fish
     ./direnv
-    ./git
     ./nvim
     ./zoxide
   ];
