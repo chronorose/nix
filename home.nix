@@ -1,11 +1,11 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
-    home.username = "chronorose";
-    home.homeDirectory = "/home/chronorose";
+  home.username = "chronorose";
+  home.homeDirectory = "/home/chronorose";
 
-    imports = [
-      ./home
-    ];
-    home.stateVersion = "25.11";
+  imports = [
+    ./home
+  ];
+  home.stateVersion = "26.05";
 }

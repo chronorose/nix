@@ -117,11 +117,17 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [ neovim ];
 
   environment.variables = {
     SUDO_EDITOR = "nvim";
     EDITOR = "nvim";
+  };
+
+  environment.shellAliases = {
+    vi = "nvim";
+    vim = "nvim";
+    v = "nvim";
   };
 
   # Some programs need SUID wrappers, can be configured further or are

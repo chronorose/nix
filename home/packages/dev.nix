@@ -1,6 +1,7 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
-with pkgs; [
+with pkgs;
+[
   man-pages
   man-pages-posix
 
@@ -30,5 +31,5 @@ with pkgs; [
   tokei
 
   nil
-  nixfmt-classic
+  nixfmt
 ]
